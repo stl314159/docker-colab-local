@@ -1,4 +1,4 @@
-ARG CUDA_VERSION=12.1
+ARG CUDA_VERSION=12.1.0
 
 FROM nvidia/cuda:${CUDA_VERSION}-base-ubuntu20.04
 
