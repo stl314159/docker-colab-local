@@ -27,13 +27,13 @@ RUN mkdir -p /opt/colab
 WORKDIR /opt/colab
 
 # Install base pip packages
-RUN pip install jupyterlab jupyter_http_over_ws ipywidgets google-colab
+RUN pip3 install pandas jupyterlab jupyter_http_over_ws ipywidgets colab-dev-tools
 RUN jupyter serverextension enable --py jupyter_http_over_ws \
     && jupyter nbextension enable --py widgetsnbextension
 
 # Install additional packages
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 ARG COLAB_PORT=8081
 EXPOSE ${COLAB_PORT}
