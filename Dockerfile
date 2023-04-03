@@ -45,10 +45,10 @@ WORKDIR /opt/colab
 RUN ${PYTHON}.${_PY_SUFFIX_MINOR} -m venv /opt/venv
 
 # Install packages packages
-COPY requirements.txt .
-RUN  . /opt/venv/bin/activate && pip install -r requirements.txt
+# COPY requirements.txt .
+# RUN  . /opt/venv/bin/activate && pip install -r requirements.txt
 
-RUN . /opt/venv/bin/activate && pip install jupyter_http_over_ws colab-dev-tools
+RUN . /opt/venv/bin/activate && pip install jupyter jupyter_http_over_ws colab-dev-tools torch torchvision
 
 RUN . /opt/venv/bin/activate && jupyter serverextension enable --py jupyter_http_over_ws \
     && jupyter nbextension enable --py widgetsnbextension
